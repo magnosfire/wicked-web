@@ -1,0 +1,37 @@
+
+<div class="home-page">
+  <div *ngIf="!messageSuccess">
+    <form [formGroup]="applicationClubForm" (ngSubmit)="submitForm()">
+
+      <fieldset class="form-group row-simple col-12" style="padding: 0;margin: 0;">
+        <div class="col-12" style="padding: 0;margin: 0;">
+          <label>Description: {{clubID}} </label>
+          <textarea class="form-control"  rows="4" maxlength="255" formControlName="reason" style="resize: none;"></textarea>
+        </div>
+        <div class="col-12">
+          <span style="float: right;"> Words counting {{255 - applicationClubForm.value.reason.length}}</span>
+        </div>
+      </fieldset>
+      <button class="btn btn-lg pull-xs-right" [disabled] = "!applicationClubForm.valid"  type="submit" style="background-color: white;color: green;margin-bottom: 12px;  ">
+        Continue
+      </button>
+
+    </form>
+  </div>
+  <div *ngIf="messageSuccess">
+      <div class="modal-header">
+          <h4 class="modal-title">Modal title</h4>
+          <button type="button" class="close" aria-label="Close" (click)="modalClose()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Club created with success!&hellip;</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-danger"  (click)="modalClose()">Back to club list</button>
+        </div>
+  </div>
+
+</div>
+

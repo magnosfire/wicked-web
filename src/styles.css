@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+.background {
+  margin-bottom: 0;
+  padding: 0;
+  min-height: calc(100% - 56px);
+  width:100%;
+  position: absolute;
+}
+
+.full-height {
+  min-height: calc(100% - 56px);
+}
+
+.row-simple {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.row-without-padding {
+  display: flex;
+  flex-wrap:wrap;
+  padding: 0;
+}
+
+.noUi-tooltip{
+  background: orange;
+  color: white;
+  border-radius: 20px;
+  width: 40px;
+  border: 0px;
+}
+
+.noUi-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -10px;
+  border-width: 10px;
+  border-style: solid;
+  border-color: orange transparent transparent transparent;
+}

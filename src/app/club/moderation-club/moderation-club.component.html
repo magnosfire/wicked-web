@@ -1,0 +1,24 @@
+
+<div class="container " style="padding: 0;">
+
+    <div class="row-simple col-12 no-padding-margin moderation-menu">
+
+        <a routerLink="/club/{{club_name}}/manage/edit" class="menu-item">
+            Edit club
+        </a>
+
+        <a routerLink="/club/{{club_name}}/manage/new-members" class="menu-item">
+            New members
+        </a>
+
+        <a routerLink="/club/{{club_name}}/manage/settings" class="menu-item">
+            Club settings
+        </a>
+
+    </div>
+
+    <div class="col-12 no-padding-margin moderation-content">
+        <router-outlet></router-outlet>
+    </div>
+
+</div>

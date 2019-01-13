@@ -1,0 +1,13 @@
+<div class="new-comment-content">
+    <form class="col-12 no-padding-margin row-simple" [formGroup]="commentForm" (ngSubmit)="submitForm()">
+        <div class="new-comment">
+          <textarea class="form-control" formControlName="comment"  type="text"></textarea>
+        </div>
+        <div class="div-text-message">
+          <button class="btn send-button" style="float: right;">></button>
+        </div>
+      </form>
+      
+      
+</div>
+

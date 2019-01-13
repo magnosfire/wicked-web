@@ -1,0 +1,226 @@
+.club-background-image {
+  background: linear-gradient(#e5e5e5, gray);
+  min-height: 30vh;
+  padding-top: 0!important;
+  margin-top: 0;
+}
+
+.no-padding-margin-left-rigth {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.div-club-menu{
+  background-color: #ffe8a1;
+  min-height: 80px;
+  padding:0 12px 0 0;
+}
+
+.margin-top-12 {
+  margin-top: 12px;
+}
+
+.club-name {
+  padding: 6px 0;
+
+}
+
+.row-without-padding {
+  display: flex;
+  flex-wrap:wrap;
+  padding: 0;
+}
+
+.div-menu-item{
+  margin-top: 3px;
+  padding: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .div-menu-item {
+    width: calc(25% - 3px);
+    margin-right: 3px;
+  }
+}
+
+.menu-item{
+
+}
+
+.menu-item:hover{
+  border: 1px solid black;
+}
+
+.div-club-base {
+  background-color: #b0e1ef;
+  min-height: 65vh;
+}
+
+.div-club-new-post {
+  background-color: #155724;
+  min-height: 30vh;
+  margin-top: 12px;
+}
+
+.new-post {
+
+}
+
+
+
+.div-post-information {
+  min-height: 50px;
+  background-color: #e2e3e5;
+}
+
+.profile-pic {
+  height: 50px;
+  width: 50px;
+  background-color: #9fcdff;
+}
+
+.div-comment-user {
+  height: 50px;
+  width: calc(100% - 50px);
+  background-color: #1f7e9a;
+}
+
+.row-simple {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.div-comment-profile-pic {
+  background-color: #f8d7da;
+  margin-left: 0;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.div-comment{
+  width: calc(100% - 62px);
+  margin-left:12px;
+}
+
+.div-comment-text {
+  background-color: white;
+  border: 1px #c1c1c1;
+  padding: 8px 10px;
+  border-radius: 18px;
+}
+
+/*---------------------------------------------------*/
+
+.comment-content {
+  width: calc(100% - 62px);
+  min-height: 50px;
+  background-color: cadetblue;
+  margin-left: 12px;
+  border-radius: 36px;
+  padding: 12px; 
+}
+
+.comment-actions {
+  width: 100%;
+  text-align: right;
+  padding-left: 15px;
+}
+
+.comment-menu-btn {
+  margin-right: 26px;
+  font-size: calc(13px + 0.1vw);
+  margin-bottom: 0;
+}
+
+
+.list-replies {
+  width: 90%;
+  margin-left: 10%;
+  padding: 12px;
+  
+}
+
+.profile-pic {
+  height: 50px;
+  width: 50px;
+  background-color: #9fcdff;
+}
+
+.reply-content {
+  width: 100%;
+  min-height: 50px;
+  background-color: #C3c3c3;
+  padding: 12px;
+}
+
+.div-reply {
+  width: 100%;
+}
+
+.no-padding-right {
+  padding-right: 0;
+}
+
+.div-comments {
+  padding-top: 15px;
+}
+
+
+
+/******/
+
+
+.club-list-post {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.post {
+
+  border: 1px solid rgb(151, 151, 151);
+  margin-top: 18px;
+  border-radius: 3px;
+  padding:18px 2vw;
+
+}
+
+.post-information {
+  margin-bottom: 6px;
+}
+
+.user-picture{
+  width: 40px;
+  height: 40px;
+  background-color:rgb(151, 151, 151);
+}
+
+.post-content {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(151, 151, 151);
+}
+
+.post-actions {
+  margin-top: 1vw;
+  padding-bottom: 1vw;
+
+}
+
+.user-information {
+  width: calc(100% - 55px);
+  line-height: 140%;
+  margin-left: 6px;
+}
+
+.post-owner-username {
+  margin-bottom: 0;
+  font-size:calc(12px + 0.5vw);
+}
+
+.post-data {
+  margin-bottom: 0;
+  font-size:calc(6px + 0.5vw);
+}

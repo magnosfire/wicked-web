@@ -1,0 +1,124 @@
+<div class="col-12 landing-page">
+
+  <div class="col-12 image-background">
+
+  </div>
+  
+</div>
+
+<!--<div class="home-page">
+
+  <div class="banner" >
+    <div class="container  row-simple">
+      <div class="col-lg-7 col-xs-12 "  >
+        <div class="main-text" style="padding: 0;margin: 0;">
+          <h1 class="" style="padding: 0;margin: 0;"> Project HFX</h1>
+          <p>Conecting people.</p>
+        </div>
+      </div>
+
+
+      <div class="col-xs-12 col-lg-5 ">
+        <h2 class="text-xs-center">Register</h2>
+
+        <p class="text-xs-center">
+
+        </p>
+        <form [formGroup]="authForm" (ngSubmit)="submitForm()">
+          <fieldset >
+            <fieldset class="form-group">
+              <label>Email: </label>
+              <input
+                formControlName="email"
+                placeholder="email@email.com"
+                class="form-control"
+                type="email"
+                email
+                (blur)="suggestUsername()"
+                 />
+              <div *ngIf="authForm.controls['email'].hasError('required') && authForm.controls['email'].touched" class="alert alert-danger">Email is required.</div>
+              <div *ngIf="authForm.controls['email'].hasError('pattern') && authForm.controls['email'].touched" class="alert alert-danger">Email must be valid.</div>
+              <div *ngIf="emailCanNotBeUsed" class="alert alert-danger">This email is already be taken.</div>
+            </fieldset>
+            <fieldset class="form-group">
+              <label>Username: </label>
+              <input
+                formControlName="username"
+                placeholder="Username"
+                class="form-control"
+                type="text"
+                (blur)="checkUsernameAvailability()"/>
+              <div *ngIf="suggestUsernameVar"> Username suggestion: {{ suggestUsernameVar }} </div>
+              <div class="alert alert-danger" *ngIf="!authForm.controls['username'].valid && authForm.controls['username'].touched && !authForm.controls['username'].hasError('pattern')">
+                Username is required.
+              </div>
+              <div *ngIf="authForm.controls['username'].hasError('pattern') && authForm.controls['username'].touched" class="alert alert-danger">Username cann't contain special characters.</div>
+              <div class="alert alert-danger" *ngIf="usernameIsNotValid">This username is already be taken.</div>
+            </fieldset>
+            <fieldset class="form-group">
+              <label>Password: </label>
+              <input
+                formControlName="password"
+                placeholder="Password"
+                class="form-control"
+                type="password" />
+              <div *ngIf="authForm.controls['password'].hasError('required') && authForm.controls['password'].touched" class="alert alert-danger">Password is required.</div>
+              <div *ngIf="authForm.controls['password'].hasError('minlength') && authForm.controls['password'].touched" class="alert alert-danger">Password must be at least 6 characters long.</div>
+            </fieldset>
+            <fieldset class="form-group">
+              <label>I am/We are a: </label>
+              <select class="form-control" name="gender" formControlName="gender">
+                  <option *ngFor="let basicGender of listBasicGenders" value={{basicGender.id}} >
+                      {{basicGender.gender}}
+                    </option>
+              </select>
+            </fieldset>
+
+            <fieldset  class="form-group row-simple" [hidden]="!this.authForm.get('gender').value || !listsexOrientation">
+                <label>I am/We are: </label>
+                <select class="form-control" name="gender" formControlName="sexOrientation">
+                    <option *ngFor="let sexOrientation of listsexOrientation" value={{sexOrientation.id}} >
+                        {{sexOrientation.gender}}
+                      </option>
+                </select>
+              </fieldset>
+
+            <fieldset class="form-group row-simple" style="margin-top: 12px;">
+              <label style="width: 100%;">Birthdate</label>
+              <div class="example" style="width: 100%;color: #55595c;">
+                <input type="hidden" id="birthdate" formControlName="partnerBirthdate" (blur)="checkAge()">
+              </div>
+              <div *ngIf="!birthdateIsValid" class="alert alert-danger">You are younger than 18 year old. You can't register.</div>
+
+            </fieldset>
+            <fieldset  class="form-group row-simple" [className]="hiddenPartnerBirthdate">
+              <label style="width: 100%;">Partner Birthdate</label>
+              <div class="example" style="width: 100%;color: #55595c;">
+                <input type="hidden" id="partnerBirthdate" formControlName="partnerBirthdate">
+              </div>
+              <div *ngIf="!partnerBirthdateIsValid" class="alert alert-danger">Your partner is younger than 18 year old. You can't register.</div>
+            </fieldset>
+            <fieldset class="form-group row-simple">
+              <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="terms">
+                <label class="form-check-label" for="exampleCheck1">I agree to ProfileHFX's terms & conditions and privacy policy</label>
+              </div>
+              <div *ngIf="!termsIsChecked" class="alert alert-danger">Your partner is younger than 18 year old. You can't register.</div>
+            </fieldset>
+            <button class="btn btn-lg pull-xs-right" data-sitekey="6LcOzFwUAAAAAH6rUx3cTqfBGjbjTXjQ1SQ6u9IF" data-callback="submitForm()" type="submit" style="background-color: white;color: green;">
+              Continue
+            </button>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="container page">
+    <div class="row">
+
+    </div>
+  </div>
+</div> -->
+

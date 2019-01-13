@@ -1,0 +1,115 @@
+<div class="col-md-10 offset-md-1">
+
+  <div class="club-wallpaper" style="">
+
+  </div>
+
+  <div class="col-12 row-simple club-information" style="padding-top:12px;padding-left:0;padding-right:0;">
+
+    <div class="col-6 col-md-5 row-simple club-numbers" style="font-family: 'Calibri';font-size:calc(13px + 0.5vw);line-height: 100%;padding:0;">
+
+      <div class="club-members text-center" style="margin:0;padding:0;margin-right: 25px;">
+        <p class="information-title">450</p>
+        <p>members</p>
+      </div>
+
+      <div class="club-posts text-center">
+        <p class="information-title">450</p>
+        <p>members</p>
+      </div>
+
+    </div>
+
+    <div class="col-6 col-md-3 club-location text-right" style="">
+        <p class="information-title">Houston, Texas</p>
+    </div>
+
+    <div class="col-12 col-md-4 club-description" style="">
+      <p>Club description</p>
+      <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor.</p>
+    </div>
+
+  </div>
+
+  <div class="col-12 no-padding-margin club-menu">
+
+    <div class="club-menu-item" routerLink="/club/{{clubInformations?.club_name}}">feed</div>
+    <div class="club-menu-item" routerLink="members" >members</div>
+    <div class="club-menu-item" routerLink="/club/{{clubInformations?.club_name}}" >gallery</div>
+    <div class="club-menu-item" *ngIf="club_adm" routerLink="/club/{{clubInformations?.club_name}}/manage">manage</div>
+  </div>
+  
+
+  <div class="col-12 row no-padding-margin" style="padding: 20px 0;">
+
+    <div class="col-lg-8 club-content">
+
+      <router-outlet></router-outlet>
+
+    </div>
+
+    <div class="col-md-4 club-features">
+
+      <div class="col-12 row-simple club-featured-members">
+
+        <div class="club-featured-members-title">
+
+          <p class="text-align-middle">Featured Members</p>
+
+        </div>
+
+        <div class="row-simple club-featured-members-content">
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+          <div class="club-featured-members-tile">
+
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+
+

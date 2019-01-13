@@ -1,0 +1,33 @@
+<nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color: rgb(81, 10, 50);">
+  <div class="col-lg-10 offset-lg-1">
+    <a class="navbar-brand" routerLink="/club" style="color:white!important;">wicked</a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse"
+            aria-expanded="false" aria-label="Toggle navigation" >
+      <span class="navbar-toggler-icon" style="color:white;"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarCollapse" style="float: right;">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a [routerLink]="['/club']" class="nav-link" href="#" style="color:white!important;">Clubs <span class="sr-only" >(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <p style="color:white;">|</p>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/profile']" class="nav-link" href="#" style="color:white!important;"><img src="../../../assets/icons/Icons/Bell.png"></a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/profile']" class="nav-link" href="#" style="color:white!important;"><img src="../../../assets/icons/Icons/envelope.png"></a>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="['/profile']" class="nav-link" href="#" style="color:white!important;">User Name</a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link" (click)="logout()" style="color:white!important;"><i class="fa fa-sign-out-alt"></i></a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>

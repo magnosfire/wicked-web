@@ -1,0 +1,418 @@
+input {
+  border-color: rgb(116, 116, 116);
+}
+
+.no-padding-margin {
+  padding: 0;
+  margin: 0;
+}
+
+.no-margin-sm {
+  margin:auto;
+}
+
+.col-lg-0{
+
+}
+
+
+@media (min-width: 992px) {
+  .col-lg-0{
+    display: none !important;
+  }
+
+  .no-margin-left-lg {
+    margin-left: 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  .no-margin-sm {
+    margin:0;
+  }
+}
+
+.center {
+  text-align: center;
+}
+
+.landing-page{
+  
+}
+
+.margin-top-15 {
+  margin-top: 15%;
+}
+
+/* BASCI STRUCTURE */
+.image-background {
+  height: 95%;
+  background-color: black;
+  background-image:url("../assets/img/darius-bashar-516006-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position-y: calc(-170px - 15vw);
+  margin-bottom: 100px;
+}
+
+@media (max-width: 576px) {
+  .image-background {
+    background-size: 100%;
+    background-position-y: -10px;
+
+  }
+}
+
+.title {
+  min-height: 40vh;
+  overflow: hidden;
+  background-color: white;
+  margin-bottom: 100px;
+
+}
+
+.overall-information {
+  height: 30%;
+  position: relative;
+  background-color: rgb(81, 10, 50) !important;
+  margin-bottom: 100px;
+
+}
+
+.feature-tiles {
+  height: 80%;
+  margin-bottom: 100px;
+  
+}
+
+.feature-image-right {
+  background-color: white;
+  margin-bottom: 100px;
+
+}
+
+.footer {
+  background-color: rgb(81, 10, 50) !important;
+}
+
+/* FONTS  */
+
+.font-title {
+  font-family: 'Calibri thin';
+  font-size: calc(30px + 0.5vw);
+  font-weight: bold;
+}
+
+.font-text {
+  font-size: calc(18px + 0.1vw);
+}
+
+.font-highlight{ 
+  font-size: calc(30px + 0.5vw);
+  line-height: 120%;
+}
+
+@media (max-width: 576px) {
+  .font-highlight{ 
+    font-size: calc(48px + 0.5vw);
+    line-height: 120%;
+  }
+}
+
+@media (min-width: 1250px) {
+
+  .font-text {
+    font-size: calc(18px + 0.5vw);
+  }
+  
+  .font-highlight{ 
+    font-size: calc(48px + 0.5vw);
+    line-height: 120%;
+  }
+}
+
+.font-footer{
+  font-family: 'Calibri thin';
+  color: white;
+  font-size: calc(12px + 0.5vh);
+}
+
+.font-white {
+  color: white;
+}
+
+.font-gray {
+  color:rgb(98, 98, 98);
+}
+
+/* Form */
+
+.form-box{
+  margin-top:12px;
+  padding-bottom: 50px;
+}
+
+.form-title {
+  color:rgb(81, 10, 50);
+  font-size: 20px;
+  font-family: 'Calibri Thin';
+  text-align: center;
+  padding-top: 20px;
+}
+
+.form-input { 
+
+  border-radius: 0;
+  font-size: 14px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-color: rgb(116, 116, 116);
+  border-radius: 2px;
+
+}
+
+
+
+.form-label {
+  margin-bottom: 0;
+  color: rgb(106, 106, 106);
+
+}
+
+.form-dropdown{
+  height:48px !important;
+}
+
+.form-button {
+  width: 100%;
+  background-color: rgb(81, 10, 50) !important;
+  color:white !important;
+}
+
+
+/* HEADER */
+
+.header{
+
+}
+
+.login-font {
+  font-size: calc(9px + 0.5vw);
+  color: white;
+  
+  float:right;
+  text-align: end;
+  margin: 0;
+}
+
+.login {
+  color:white;
+  height: 8vh;
+  text-align: center;
+  position: relative;
+  float:right;
+}
+
+.brand-name {
+  color:white;
+  height: 8vh;
+  text-align: center;
+  position: relative;
+}
+
+.brand-title {
+  font-size: calc(15px + 0.5vh);
+  color: white;
+}
+
+.align-middle{
+  height: 40%;
+  margin: auto;
+  position: absolute;
+  top:0; left:0; bottom:0; right: 0;
+}
+
+.image-background .content-text {
+  height: 82vh;
+  font-family: 'calibri thin';
+  font-size: calc(52px + 0.5vh);
+  color: white;
+  line-height: 110%;
+}
+
+.image-background .content-action {
+  height: 82%;
+  margin-right: 0;
+  padding-right: 0;
+  margin-top: 5%;
+  margin-bottom: 15%;
+}
+
+.image-background .content-box{
+  margin-top: 5%;
+  margin-right: 0;
+  padding-right: 0;
+  background-color: white;
+}
+
+.margin-top-20{
+  margin-top: 20%;
+}
+
+.content-box-title {
+  text-align: center;
+}
+
+
+/* INFORMATIONS */
+
+.information-box {
+  color:white;
+  height: 30vh;
+}
+
+.information-title {
+  margin-bottom: 0;
+  margin-top:10px;
+  padding-bottom:0;
+}
+
+.information-text {
+  margin-top: -5px;
+  padding-top:0;
+}
+
+/* FEATURES-TILES */
+
+.feature-images-tiles {
+  padding: 0;
+}
+
+.tiles-background-border {
+  background-color: rgb(191, 191,191);
+  border: 1px solid rgb(152, 152, 152);
+}
+
+.tile-top-left {
+  height: 20vw;
+  width: 20vw;
+}
+
+.tile-top-right{
+  height: 10vw;
+  width: 10vw;
+  margin-left: 2.5vw;
+}
+
+.tile-middle-left {
+  height: 20vw;
+  width: 20vw;
+  margin-top: 2.5vw;
+}
+
+.tile-middle-right{
+  height: 30vw;
+  width: 10vw;
+  margin-left: 2.5vw;
+  margin-top: -7.5vw;
+}
+
+.tile-bottom{
+  height: 20vw;
+  width: 32.5vw;
+  margin-top:2.5vw;
+}
+
+@media (max-width: 732px) {
+
+  .tile-top-left {
+    height: 55vw;
+    width: 55vw;
+  }
+  
+  .tile-top-right{
+    height: 30vw;
+    width: 30vw;
+    margin-left: 5vw;
+  }
+  
+  .tile-middle-left {
+    height: 55vw;
+    width: 55vw;
+    margin-top: 5vw;
+  }
+  
+  .tile-middle-right{
+    height: 80vw;
+    width: 30vw;
+    margin-left: 5vw;
+    margin-top: -20vw;
+  }
+  
+  .tile-bottom{
+    height: 55vw;
+    width: 90vw;
+    margin-top:5vw;
+  }
+}
+
+
+.feature-image {
+
+  height: 30vw;
+  max-height: 30vw;
+  width:30vw;
+  float: right;
+
+}
+
+@media (max-width: 732px) {
+
+  .feature-image {
+
+    height: 60vw;
+    max-height: 60vw;
+    width:60vw;
+    margin-left: 15vw;
+    float: none;
+  
+  }
+  
+
+}
+
+/* FOOTER */
+
+.footer-info {
+  height:60%;
+  margin-top: 8vh;
+}
+
+.footer-info .left {
+
+  text-align:left;
+
+}
+
+.footer-info .right {
+  
+  text-align: right;
+  
+}
+
+@media (max-width: 767px) {
+
+  .footer-info .left {
+
+    text-align:center;
+  
+  }
+  
+  .footer-info .right {
+    
+    text-align: center;
+    
+  }
+  
+
+}

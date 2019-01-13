@@ -1,0 +1,105 @@
+<div class="container club-manage-content" style="padding: 0;">
+
+    <div class="col-12  no-padding-margin" >
+
+        <p class="col-12 no-padding-margin">Transfer ownership</p>
+
+        <p class="col-12 no-padding-margin">New owner : </p>
+
+        <div class="" style="display: inline-flex;">
+
+            <div>
+
+                <input id="new-owner" class="form-control new-owner-input" type="text"[(ngModel)]=query (keyup)=filter()>
+
+                <div class="form-control new-owner-dropdown" *ngIf="filteredList.length > 0" >
+
+                    <div *ngFor="let item of filteredList; let idx = index" >
+    
+                        <div class="dropdown-item-padding" (click)="select(item.username)">{{item.username}}</div>
+    
+                    </div>
+    
+                </div>
+
+            </div>
+            
+
+            <div class="btn new-owner-btn" (click)="checkUsername()">
+                Change owner
+            </div>
+        
+        </div>
+
+    </div>
+
+    <div class="col-12 no-padding-margin delete-club">
+        <p>Delete club</p>
+
+        <button type="button" class="btn btn-danger"  >Club Delete</button>
+    </div>
+
+</div>
+
+<ng-template  id="content" let-c="close" let-d="dismiss" style="height: 300px;">
+    
+
+    <div *ngIf="!username_valid" class="pop-up">
+        <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <p>This username isn't valid or this username is not a member of this club.&hellip;</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger"  (click)="c(true)">Confirm</button>
+        </div>
+    </div>
+
+    <div >
+        <div class="modal-header">
+            <h4 class="modal-title">Modal title</h4>
+            <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+                <p>This username isn't valid or is not a member of this club&hellip;</p>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-danger"  (click)="c(true)">Confirm</button>
+        </div>
+    </div>
+
+</ng-template>
+
+<ng-template #contentTransfer id="contentTransfer" let-c="close" let-d="dismiss">
+    <div style="height: auto;">
+
+        <div class="col-12" style="height: 30px;">
+
+            <button type="button" class="close" id="closeTransferModal" #closeTransferModal aria-label="Close" (click)="d('Cross click')" style="height: 25px;line-height: 100%;padding-top:6px; ">
+
+                <span aria-hidden="true">&times;</span>
+
+            </button>
+
+        </div>
+
+        <div class="modal-information" style="">
+
+            <div class="modal-content-icon">
+                <img class="modal-icon" src="./../../../assets/icons/Icons/Bell.png">
+            </div>
+            <p class="modal-title">Warning!</p>
+            <p class="modal-text">Transferring the ownership is irreversible. Once the transfer is complete we will inform the new club owner via email and your status will be changed from owner to member&hellip;</p>
+            <button type="button" class="btn modal-btn-cancel"  (click)="d('Cross click')">Cancel</button>
+            <button type="button" class="btn modal-btn-proceed"  (click)="changeClubOwner()">Proceed</button>
+        </div>
+
+    </div>
+
+</ng-template>

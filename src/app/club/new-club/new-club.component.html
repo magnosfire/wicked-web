@@ -1,0 +1,102 @@
+
+<div class="home-page">
+
+  <div class="banner" >
+    <div class="container  row-simple" style="background-color: #c1c1c1;">
+
+      <div class="col-xs-12 col-lg-12" style="margin-top: 12px;">
+        <h2 class="text-xs-center">Club Registration</h2>
+
+        <p class="text-xs-center">
+
+        </p>
+
+        <form [formGroup]="newClubForm" (ngSubmit)="submitForm()">
+
+          <h2 class="text-xs-left">Club Background Image</h2>
+          <div class="col-12 row-simple" style="background-color: #bbbbbb;padding: 0;margin: 0;">
+            <div class="col-lg-3 col-sm-12" style="margin-top: 30px;">
+              <img *ngIf="croppedImage" [src]="croppedImage" style="width: 200px;height: 200px;"/>
+              <img *ngIf="!croppedImage" src="../../../assets/img/profile.png" style="width: 200px;height: 200px;"/>
+              <div>
+                <label for="image" class="btn btn-primary btn-lg" style="width: 200px;margin-top: 12px;">Select Image</label>
+                <input id="image" class="" type="file" (change)="fileChangeEvent($event)" style="background-color: #71dd8a;visibility:hidden;" />
+              </div>
+            </div>
+            <div class="col-lg-9 col-sm-12" style="margin-top: 12px;">
+
+            </div>
+          </div>
+
+          <fieldset style="padding: 0;margin: 0;margin-top: 12px;">
+            <h2 class="text-xs-left">Club Information</h2>
+            <div class="row-simple">
+              <fieldset class="form-group col-lg-4" style="padding: 0;margin: 0;">
+                <label>Name: </label>
+                <input class="form-control" formControlName="clubname"/>
+              </fieldset>
+              <fieldset class="form-group col-lg-4" style="padding: 0;margin: 0;margin-left: 24px;">
+                <label>Visibility</label>
+                <div class="col-12" style="padding: 0;">
+                  <label class="radio-inline" style="font-size: 22px;">
+                    <input type="radio" name="visibility" value="0" formControlName="visibility" style="transform: scale(1.3);margin-top:10px;">Public
+                  </label>
+                  <label class="radio-inline" style="font-size: 22px;float: right;">
+                    <input type="radio" name="visibility" value="1" formControlName="visibility" style="transform: scale(1.3);margin-top:10px;">Private
+                  </label>
+                  
+                </div>
+              </fieldset>
+
+              <fieldset class="form-group col-lg-12" style="padding: 0;margin: 0;margin-left: 24px;">
+                <label>Visibility</label>
+
+                <div *ngFor="let gender of genderlist">
+                  <input type="checkbox" (change)="onChange(gender.id, $event.target.checked)"> {{gender.gender}}<br>
+                </div>
+              </fieldset>
+
+              <fieldset *ngIf="this.newClubForm.value.visibility == 1" class="form-group col-12" style="padding: 0;margin: 0;">
+                <nouislider [connect]="true" [config]="someKeyboardConfig" [min]="0" [max]="100" [step]="1" [(ngModel)]="someRange" [ngModelOptions]="{standalone: true}"></nouislider>
+              </fieldset>
+    
+            </div>
+            <fieldset class="form-group row-simple col-12" style="padding: 0;margin: 0;">
+              <div class="col-12" style="padding: 0;margin: 0;">
+                <label>Description: </label>
+                <textarea class="form-control"  rows="4" maxlength="255" formControlName="description" style="resize: none;"></textarea>
+              </div>
+              <div class="col-12">
+                <span style="float: right;"> Words counting {{255 - newClubForm.value.description.length}}</span>
+              </div>
+            </fieldset>
+            <button class="btn btn-lg pull-xs-right" [disabled] = "!newClubForm.valid"  type="submit" style="background-color: white;color: green;margin-bottom: 12px;  ">
+              Continue
+            </button>
+          </fieldset>
+
+        </form>
+
+        
+
+      </div>
+    </div>
+  </div>
+
+  <ng-template #content id="content" let-c="close" let-d="dismiss">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Club created with success!&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-danger"  (click)="c(true)">Confirm</button>
+      </div>
+    </ng-template>
+
+</div>
+

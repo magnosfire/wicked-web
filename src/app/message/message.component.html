@@ -1,0 +1,37 @@
+<div class="home-page background" style="padding: 0;position: relative;" >
+
+  <div class="" style="margin-bottom: 0;padding: 0;">
+
+    <div class="container div-content" style="padding: 0;background-color: black;position: relative;min-height: calc(100vh - 56px);">
+      <div class="row-simple col-md-12 no-padding-margin-left-rigth div-content" style="padding: 0;">
+
+        <div class="col-sm-12 col-md-3 div-message-contacts no-padding-margin-left-rigth"  style="padding-right: 0;min-height: calc(100vh - 56px);">
+          <div class="title">
+            <h5>Contacts</h5>
+          </div>
+          <div *ngFor="let contact of contacts" class="col-12 row-simple contact-profile" style="background-color: #f8d7da;height: 60px;margin-top: 4px;">
+            <a class="row-simple" style="width: 100%;text-decoration: none;" [routerLink]="['/message', contact.chat_user]" >
+              <div class="profile-pic" style="background-color: #1f7e9a;height: 100%;margin-top: 5px;border-radius: 36px; ">
+
+              </div>
+              <div class="contact-profile-information" style="width: calc(100% - 60px); margin-left: 8px;">
+                <label>{{contact.chat_user}}</label>
+              </div>
+            </a>
+
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-9 div-message-base div-content-messages"  style="padding-top: 12px;position: relative;min-height: calc(100vh - 56px);">
+
+          <router-outlet></router-outlet>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+

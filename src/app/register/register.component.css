@@ -1,0 +1,119 @@
+.club-background-image {
+  background: linear-gradient(#e5e5e5, gray);
+  min-height: 30vh;
+  padding-top: 0!important;
+  margin-top: 0;
+}
+
+.no-padding-margin-left-rigth {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.div-club-menu{
+  background-color: #ffe8a1;
+  min-height: 80px;
+  padding:0 12px 0 0;
+}
+
+.margin-top-12 {
+  margin-top: 12px;
+}
+
+.club-name {
+  padding: 6px 0;
+
+}
+
+.row-without-padding {
+  display: flex;
+  flex-wrap:wrap;
+  padding: 0;
+}
+
+.div-menu-item{
+  margin-top: 3px;
+  padding: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .div-menu-item {
+    width: calc(25% - 3px);
+    margin-right: 3px;
+  }
+}
+
+.menu-item{
+
+}
+
+.menu-item:hover{
+  border: 1px solid black;
+}
+
+.div-club-base {
+  background-color: #b0e1ef;
+  min-height: 65vh;
+}
+
+.div-club-new-post {
+  background-color: #155724;
+  min-height: 30vh;
+  margin-top: 12px;
+}
+
+.new-post {
+
+}
+
+.list-post {
+  background-color: #ffe8a1;
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.div-post-information {
+  min-height: 50px;
+  background-color: #e2e3e5;
+}
+
+.profile-pic {
+  height: 50px;
+  width: 50px;
+  background-color: #9fcdff;
+}
+
+.div-comment-user {
+  height: 50px;
+  width: calc(100% - 50px);
+  background-color: #1f7e9a;
+}
+
+.row-simple {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.div-comment-profile-pic {
+  background-color: #f8d7da;
+  margin-left: 0;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.div-comment{
+  width: calc(100% - 62px);
+  margin-left:12px;
+}
+
+.div-comment-text {
+  background-color: white;
+  border: 1px #c1c1c1;
+  padding: 8px 10px;
+  border-radius: 18px;
+}
+

@@ -1,0 +1,17 @@
+.moderation-menu{
+  padding-bottom:16px;
+  border-bottom: solid 1px rgb(151, 151, 151);
+  width: 100%;
+}
+
+.menu-item {
+  font-size: calc(12px + 0.5vw);
+  font-family: 'Calibri';
+  margin-right: calc(16px + 0.5vw);
+  color: #373a3c;
+  text-decoration:none;
+}
+
+.moderation-content {
+  padding: 16px 0;
+}

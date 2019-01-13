@@ -1,0 +1,44 @@
+<div class="col-12 row-simple" style="background-color: #bbbbbb;height: 60px;padding: 5px;">
+  <div class="profile-pic" style="border-radius: 60px;"></div>
+  <div class="row-simple div-message-send-by-you" style="">
+    <label class="col-12" style="margin-bottom: 0;margin-left: 6px;">{{contactUsername}}</label>
+  </div>
+</div>
+
+<div class="div-message" #scrollMe style="background-color: white;bottom: 0;position:relative;transform-origin: bottom right;overflow: scroll;padding:0;min-height: calc(100vh - 190px);">
+  
+  <div *ngFor="let message of messageList">
+
+    <div *ngIf="message.user_receiver === contactUsername" class="row-simple" style="padding-top: 6px;width: 100%;float: left;display: flex;padding: 5px;">
+      <div class="profile-pic"></div>
+      <div class="row-simple div-message-send-by-you" style="position:relative; background-color: #71dd8a;border-radius: 60px;padding: 12px;max-width: calc(100% - 60px);margin-left: 6px;">
+        <label class="col-12" style="margin-bottom: 0;margin-left: 6px;">{{message.text}}</label>
+      </div>
+    </div>
+
+    <div *ngIf="message.user_receiver !== contactUsername" class="col-12 row-simple" style="padding-top: 6px;padding: 5px;height: auto;position: relative;">
+      <div class="div-message-send-by-you" style="position:relative; background-color: #cce5ff;border-radius: 20px;padding: 12px;max-width: calc(100% - 60px);">
+        <label class="col-12" style="margin-bottom: 0;margin-right: 30px;float: right;">{{message.text}}</label>
+      </div>
+      <div class="profile-pic" style="margin-left: 6px;position: absolute;bottom: 5px;right: 5px;"></div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+</div>
+
+<div class="new-message row-simple" style="background-color: #bbbbbb;max-height: 10%;margin-top: 12px;">
+  <form class="row-simple" style="width: 100%;" [formGroup]="messageForm" (ngSubmit)="submitMessage()">
+    <div class="div-text-message" style="width: calc(100% - 70px);">
+      <input formControlName="message" class="form-control" type="text" style="border-radius: 60px;"/>
+    </div>
+    <div class="div-text-message" style="width:50px;margin-left: 20px;">
+      <button class="btn" style="float: right;"> > </button>
+    </div>
+  </form>
+</div>

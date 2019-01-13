@@ -1,0 +1,68 @@
+<div class="container gallery" style="padding: 0;">
+
+  Privacy Settings : 
+  <div *ngIf="edit">
+    <form [formGroup]="privacyForm" (ngSubmit)="submitForm()">
+      <div class="col-12">
+      <input type="checkbox" [checked]="privacyList.show_clubs" formControlName="show_clubs"/> Show other members what clubs I am a member of
+      </div>
+      <div class="col-12">
+        <input type="checkbox"  [checked]="privacyList.show_gallery" formControlName="show_gallery"/> Show other users my photo gallery
+      </div>
+      <div class="col-12">
+        <input type="checkbox" [checked]="privacyList.show_logged"  formControlName="show_logged"/> Show other users the last time I logged in
+      </div>
+      <button class="btn btn-lg pull-xs-right"  type="submit" style="background-color: white;color: green;margin-bottom: 12px;  ">
+        Continue
+      </button>
+    </form>
+  </div>
+
+  <div *ngIf="!edit">
+    <div class="col-12">
+      <button class="btn btn-sm" (click)="editPrivacy()"  style="background-color: white;color: green;margin-bottom: 12px;  ">
+          Edit
+      </button>
+    </div>
+    <div class="col-12">
+      <input type="checkbox" [checked]="privacyList.show_clubs" disabled/> Show other members what clubs I am a member of
+    </div>
+    <div class="col-12">
+      <input type="checkbox" [checked]="privacyList.show_gallery"  disabled/> Show other users my photo gallery
+    </div>
+    <div class="col-12">
+      <input type="checkbox" [checked]="privacyList.show_logged"  disabled/> Show other users the last time I logged in
+    </div>
+  </div>
+
+  <div>
+      Email Notifications:
+      <div class="col-12">
+        <input type="checkbox" /> Bi-weekly summary of new clubs
+      </div>
+
+      <div class="col-12">
+        <input type="checkbox" /> Email option 2
+      </div>
+
+      <div class="col-12">
+        <input type="checkbox" /> Email option 3
+      </div>
+
+      <div class="col-12">
+        <input type="checkbox" /> Email option 4
+      </div>
+
+      <div class="col-12">
+        <input type="checkbox" /> Email option 5
+      </div>
+
+      <div class="col-12">
+        <input type="checkbox" /> Email option 6
+      </div>
+
+  </div>
+
+  
+
+</div>

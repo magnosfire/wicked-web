@@ -1,0 +1,37 @@
+
+<div class="div-comments row-without-padding" style="margin-bottom: 12px;">
+
+  <div class="row-simple" style="padding-top: 6px;width: 100%;float: left;display: flex;padding: 5px;">
+    <div class="profile-pic"></div>
+    <div class="row-simple div-message-send-by-you" style="width: calc(100% - 62px);min-height: 50px;background-color: #C3c3c3;margin-left: 12px;border-radius: 36px;padding: 12px; ">
+      <div *ngIf="!editReply[r]" class="">
+
+          <label class="col-12" style="margin-bottom: 0;margin-left: 6px;">{{replyInformation.text}}</label>
+
+      </div>
+      
+      <div *ngIf="editReply[r]" class="">
+
+        <app-update-reply-comment [reply]="true"  [commentID] = "replyInformation.id" [commentElement] = "elementID" [commentText] = "replyInformation.text"></app-update-reply-comment>
+
+      </div>
+    </div>
+    <div class="comment-info col-12 row-simple" >
+      <div class="col-9"></div>
+      <div class="col-2">
+        {{replyInformation.comment_date | date: 'dd/MM/yyyy'}} aaa
+      </div>
+      <div *ngIf="replyInformation.comment_owner" class="col-1">
+          <div (click)="replyEdit(r, reply.id)">Edit</div>
+      </div>
+    </div>
+    <div class="col-12  row" style="margin-left: 0px;margin-right: 0px;margin-bottom: 0px;">
+        <div class="col-2 " style="padding: 0;margin-right: 12px;">0 Likes</div>
+        <div class="col-4 " (click)="replyComment(r, reply.id)" style="padding: 0;margin-right: 12px;">Reply {{replyInformation.id}} - INDEX: {{commentID}}</div>
+        <div class="col-3 " (click)="postReport(r, reply.id)" style="padding: 0;">Report - Elemente {{elementID}}</div>
+      </div>
+  </div>
+  
+</div>
+  
+

@@ -1,0 +1,220 @@
+<div *ngIf="!isLogged">
+  <div class="col-12 no-padding-margin landing-page">
+
+    <div class="col-12 no-padding-margin image-background" >
+
+        
+        <div class="row col-md-10 offset-md-1  justify-content-between header no-margin-sm">
+        
+          <div class="col-1 align-self-start brand-name">
+            <p class="align-middle brand-title" >wicked</p>
+            
+          </div>
+
+          <div class="col-1 align-self-end login" >
+            <div *ngIf="!login">
+              <p class="align-middle login-font" (click)="login = !login">LOGIN</p>
+            </div>
+            <div *ngIf="login">
+              <p class="align-middle login-font" (click)="login = !login">REGISTER</p>
+            </div>
+            
+          </div>
+
+        </div>
+
+        <div div class="col-lg-10 offset-lg-1 row justify-content-between content no-margin-sm">
+
+          <div class="col-md-6 col-lg-6 align-self-start content-text no-margin-sm no-margin-left-lg">
+
+            <p class="margin-top-20">Join the most trusted and active alternative lifestyle community</p>
+
+          </div>
+
+          
+          <div class="col-md-4 col-lg-4 offset-lg-1 align-self-start content-action no-padding-margin" style="margin-top:5%;">
+
+            <div class="col-md-12 content-box no-padding-margin">
+
+              <div class="col-xs-12 col-lg-12 no-margin-sm">
+
+                  <div *ngIf="!login">
+
+                    <p class="font-title form-title" >Register</p>
+
+                    <app-register-new-user></app-register-new-user>
+
+                  </div>
+
+                  <div *ngIf="login">
+
+                    <p class="font-title form-title" >Login</p>
+
+                    <app-auth-page></app-auth-page>
+
+                  </div>
+                  
+
+              </div>
+
+            </div>
+
+          </div>
+          <div class="col-md-1 col-lg-0">
+
+            
+    
+          </div>
+
+
+
+      </div>
+
+    </div>
+
+    <div class="col-md-10 offset-md-1 title">
+
+      <div class="col-md-6 offset-md-3 font-gray" >
+        <h1 class="center">Feature Title</h1>
+        <p class="font-text font-gray">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Etiam mauris elit, viverra nec ipsum egestas, pretium consequat enim.
+          In efficitur non ipsum vitae varius. Nullam tincidunt mauris non sollicitudin malesuada.
+          Proin sit amet mi suscipit odio sagittis euismod et sit amet eros.
+          In tincidunt lectus diam, id auctor lacus euismod sit amet.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="col-md-12 overall-information">
+
+      <div class="col-md-10  offset-md-1 row information-content no-margin-sm">
+        <div class="col-md-4 information-box no-margin-sm">
+          <div class="align-middle content-box-title">
+            <h3 class="center information-title">200,000</h3>
+            <p class="center information-text"> Actives users</p>
+          </div>
+        </div>
+        <div class="col-md-4 information-box no-margin-sm">
+          <div class="align-middle content-box-title">
+            <h3 class="center information-title">30,000</h3>
+            <p class="center information-text"> Clubs</p>
+          </div>
+        </div>
+        <div class="col-md-4 information-box no-margin-sm">
+          <div class="col-12 align-middle content-box-title no-padding-margin">
+            <h3 class="center information-title">25,000</h3>
+            <p class="center information-text">Messages per month</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 no-padding-margin feature-tiles">
+
+      <div class="col-xs-12 col-sm-12 col-md-10 col-lg-10  offset-md-1 offset-lg-1 row no-margin-sm" style="height: 100%;">
+
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 row feature-images-tiles no-margin-sm" style="height: 100%;">
+
+          <div class="tiles-background-border tile-top-left">
+                              
+          </div>
+
+          <div class="tiles-background-border tile-top-right" >
+
+          </div>
+
+          <div class="tiles-background-border tile-middle-left">
+
+          </div>
+
+          <div class="tiles-background-border tile-middle-right">
+
+          </div>
+
+          <div class="tiles-background-border tile-bottom">
+
+          </div>
+          
+        </div>
+
+        <div class="col-md-6 feature-content ">
+
+          <div style="color:rgb(143, 143, 143);">
+            <p class="font-title font-gray">Feature title</p>
+            <p class="font-text font-gray">Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY column To disable safe mode.
+              Error Code: 1175. You are using safe update mode and you tried to update a table without a WHERE that uses a KEY </p>
+
+          </div>
+
+          <div>
+
+            <p class="font-highlight margin-top-15 font-gray">
+              Lorem ipsum dolor sit amet, consectetur adipicing
+            </p>
+
+          </div>
+          
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-10 row offset-md-1 feature-image-right  no-margin-sm">
+
+
+      <div class="col-xs-12 col-sm-12 col-md-6  no-margin-sm" >
+          <p class="font-highlight margin-top-15 font-gray"> Lorem ipsum dolor sit amet, consectetur adipicing </p>
+      </div>
+
+      <div class="col-xs-12 col-sm-12  col-md-6  no-margin-sm">
+          <div class="tiles-background-border feature-image" >
+
+          </div>
+      </div>
+
+
+
+    </div>
+
+    <div class="col-12  footer no-margin-sm">
+
+      <div class="col-md-10 row offset-md-1" style="padding-bottom: 8vh;">
+
+        <div class="col-sm-12 col-md-3 font-white footer-info no-padding-margin" >
+          <div class="col-12 no-padding-margin left">About us</div>
+          <div class="col-12 no-padding-margin left">Privacys</div>
+          <div class="col-12 no-padding-margin left">FAQ</div>
+          <div class="col-12 no-padding-margin left">Media</div>
+        </div>
+
+        <div class="col-sm-12 col-md-6 font-footer" style="height:60%;margin-top: 8vh;">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam mauris elit, viverra nec ipsum egestas,
+            pretium consequat enim. In efficitur non ipsum vitae varius. Nullam tincidunt mauris non sollicitudin 
+            malesuada. Proin sit amet mi suscipit odio sagittis euismod et sit amet eros. In tincidunt lectus diam,
+            id auctor lacus euismod sit amet.</p>
+          
+        </div>
+
+        <div class="col-sm-12 col-md-3 font-white footer-info ">
+          <div class="col-12 no-padding-margin right">About us</div>
+          <div class="col-12 no-padding-margin right">Privacys</div>
+          <div class="col-12 no-padding-margin right">FAQ</div>
+          <div class="col-12 no-padding-margin right">Media</div>
+        </div>
+
+      </div>
+
+
+    </div>
+    
+  </div>
+</div>
+<div *ngIf="isLogged" >
+    <app-home-layout-header></app-home-layout-header>
+  
+    <router-outlet></router-outlet>
+</div>
+  

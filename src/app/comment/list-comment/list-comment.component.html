@@ -1,0 +1,188 @@
+<div *ngFor="let comment of commentList2; let c = index" class="col-12 list-post no-padding-right">
+
+  <div class="div-comments">
+
+    <div class="col-12 row-simple no-padding-right">
+
+      <img class="user-picture">
+
+      <div class="user-information row-simple">
+
+        <p class="col-12 no-padding-margin post-owner-username">{{comment.username}}</p>
+
+        <p class="col-11 no-padding-margin post-data" *ngIf="!reply.edit" >
+            {{comment.comment_date | date: 'dd/MM/yyyy'}}
+        </p>
+
+        <p class="col-11 no-padding-margin post-data" *ngIf="reply.edit" >
+            Posted - {{comment.comment_date | date: 'dd/MM/yyyy'}} and Edited - {{comment.edit_date | date: 'dd/MM/yyyy'}}
+        </p>
+
+        <p *ngIf="comment.comment_owner" class="col-1 post-data" (click)="commentEdit(c, comment.id)">
+          Edit
+        </p>
+
+      </div>
+
+      <div class="col-12 row-simple no-padding-margin">
+
+          <div class="row-simple no-padding-margin reply-content">
+
+            <p  *ngIf="!editComment[c]" class="col-12 row-simple no-padding-margin">{{comment.text}}</p>
+
+            
+            <div *ngIf="editComment[c]" class="">
+
+              <app-update-comment  [commentID] = "comment.id" [commentElement] = "c" [commentText] = "comment.text"></app-update-comment>
+    
+            </div>
+
+          </div>
+
+      </div>
+
+      <div class="row comment-actions">
+        <p class="comment-menu-btn">0 Likes</p>
+        <p class="comment-menu-btn" (click)="showComments(c, comment.id)" >Reply</p>
+        <p class="comment-menu-btn" (click)="showComments(c, comment.id, false)" >{{comment.comments}} Comments</p>
+        <p class="comment-menu-btn" (click)="postReport(c, comment.id)" >Report</p>
+      </div>
+      
+    </div>
+
+    <div class="col-12 no-padding-right" *ngIf="hideme[c] || replyCommentVisible[c]">
+
+      <div *ngIf="hideme[c]">
+
+        <div *ngIf="replyCommentVisible[c] || (hideme[c] || replyme[c])">
+
+          <app-new-reply-comment [postID]="postId" [commentID]="comment.id" [postElement]="c" [replyTargetUsername]="replyTargetUsername + ' '"></app-new-reply-comment>
+
+        </div>
+
+        <div *ngFor="let reply of replyList; let r = index" class="col-12  no-padding-margin list-replies">
+
+          <div class="div-reply row-simple">
+
+            <img class="user-picture">
+
+            <div class="user-information row-simple">
+
+              <p class="col-12 no-padding-margin post-owner-username" >{{reply.username}}</p>
+
+              <p class="col-11 no-padding-margin post-data" *ngIf="!reply.edit">
+                  {{reply.comment_date | date: 'dd/MM/yyyy'}}
+              </p>
+
+              <p class="col-11 no-padding-margin post-data" *ngIf="reply.edit">
+                  Posted - {{reply.comment_date | date: 'dd/MM/yyyy'}} and Edited - {{reply.edit_date | date: 'dd/MM/yyyy'}}
+              </p>
+
+              <p *ngIf="reply.comment_owner" class="col-1 post-data" (click)="replyEdit(r, reply.id)">
+                Edit
+              </p>
+
+            </div>
+
+          </div>
+
+          <div class="col-12 no-padding-margin">
+
+              <div class="row-simple reply-content no-padding-margin">
+
+                <p *ngIf="!editReply[r]" class="col-12 row-simple no-padding-margin">{{reply.text}}</p>
+
+                <div *ngIf="editReply[r]" class="">
+          
+                  <app-update-reply-comment [reply]="true"  [commentID] = "reply.id" [commentElement] = "r" [commentText] = "reply.text"></app-update-reply-comment>
+          
+                </div>
+
+              </div>
+
+          </div>
+
+          <div class="row comment-actions">
+            <p class="comment-menu-btn">0 Likes</p>
+            <p class="comment-menu-btn" (click)="replyReply(r, reply.id, reply.username)" >Reply</p>
+            <p class="comment-menu-btn" (click)="postReport(r, reply.id)" >Report</p>
+          </div>
+
+        </div>
+        
+        
+
+      </div>
+
+      
+
+    </div>
+
+  </div>
+
+
+</div>
+
+
+<!-- MODAL -->
+<ng-template #content id="content" let-c="close" let-d="dismiss" class="col-12" >
+  
+    <div *ngIf="!reportFinished" class="col-12">
+  
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <div class="modal-body">
+        <p>Club created with success!&hellip;</p>
+      </div>
+  
+      <form class="row-simple" [formGroup]="reportForm" (ngSubmit)="submitForm()" >
+        <div class="col-12">
+          <select class="form-control" name="report" formControlName="report" (blur)="checkReport()">
+              
+              <option [ngValue]="'default'" disabled selected>Pick you report</option>
+              <option *ngFor="let c of reportList" [ngValue]="c.id">{{ c.title }}</option>
+    
+          </select>
+        </div>
+        <div  name="comment" class="col-12">
+          <textarea class="form-control" placeholder="Tell us more about it" formControlName="text"></textarea>
+        </div>
+        <div class="col-12 modal-footer">
+          <button type="button" class="btn btn-outline-danger"  (click)="c('Cross click')">Cancel</button>
+          <button type="submit" class="btn btn-outline-default" [disabled]="!reportIsValid || !reportForm.valid" >Confirm</button>
+        </div>
+      </form>
+    </div>
+  
+    <div *ngIf="reportFinished" class="col-12">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+          
+        Thank you for the report. We will review and take appropriate action.
+      
+      </div>
+      
+      <div class="modal-footer">
+      
+        <button type="button" class="btn btn-outline-default"  (click)="c('Cross click')">Confirm</button>
+      
+      </div>    
+  
+    </div>
+  
+  
+  </ng-template>
+  <!-- MODAL -->
+  
+

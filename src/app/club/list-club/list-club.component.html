@@ -1,0 +1,91 @@
+<div class="col-lg-10 offset-lg-1">
+
+  <div class="col-12 new-club-div">
+
+    <a class="btn btn-primary float-right new-club-btn" href="/club/new">
+      Create a Club
+    </a>
+
+  </div>
+
+  <div class="col-12 row no-padding-margin">
+
+    <div *ngFor="let joinedClub of joinedClubsList">
+
+      <div class="club-card" style="background-image:url('https://vignette.wikia.nocookie.net/phobia/images/a/aa/Snow.jpg/revision/latest?cb=20161109045734');">
+
+        <div class="club-card-blur">
+
+          <a href="" class="club-card-link" [routerLink]="[joinedClub.club_name]"  style="">
+
+            <h5 class="club-card-total-members">{{joinedClub.total_members}} MEMBERS {{i}}</h5>  
+
+          </a>
+
+        </div>
+
+      </div>
+
+      <a href="" [routerLink]="[joinedClub.club_name]"  style="height: auto;text-decoration: none;">
+
+        <div class="col-12 row-simple">
+
+          <div class="col-11 no-padding-margin club-title">
+            <p>{{joinedClub.club_name}}</p>
+          </div>
+
+          <div *ngIf="joinedClub.private" class="club-private col-1" style="padding:0;">
+            <label style="float:right"> <img src="../../../assets/img/lock-icon.png"> </label>
+          </div>
+
+        </div>  
+        
+      </a>
+      
+    </div>
+
+  </div>
+
+  
+  <div class="col-12 row" style="height:auto;max-height:30px;margin-top: 25px;margin-bottom: 0px;padding: 0;">
+    
+    <p class="col-1" style="font-weight: bold; color: black; font-size: 18px;margin-bottom: 0px;padding: 0;"> Clubs </p>
+    
+    <select class="col-3 form-control form-input form-dropdown" [ngModel]="clubFilter" (ngModelChange)="applyClubFilter($event)">
+      <option [value]="All" selected>All</option>
+      <option [value]="Public">Public</option>
+      <option [value]="Private">Private</option>
+      
+    </select>
+    <select class="col-3 form-control form-input form-dropdown" [ngModel]="clubFilter" (ngModelChange)="applyClubFilter($event)">
+      <option [value]="'Sort A->Z'" selected>Sort A->Z</option>
+      <option [value]="'Sort Z->A'">Sort Z->A</option>
+      <option [value]="Members">Sort by Members</option>
+      
+    </select>
+  </div>
+
+  <div class="col-12 row">
+    <div class="club-card" *ngFor="let club of clubsList" >
+      <a href="" class="row-simple" [routerLink]="[club.club_name]"  style="height: auto;text-decoration: none;">
+        <div class="" style="background-color:#c1c1c1;min-height:20vh;margin-bottom:20px;vertical-align: middle;width: 100%;height: 100%;position: relative;text-align: center;color:white;background-image: url('https://img.elo7.com.br/product/zoom/FBCE34/adesivo-paisagem-praia-decorando-com-adesivos.jpg')">
+          <h4 class="text-xs-center" style="position: absolute;top: 50%;left: 0;right: 0;margin-top: -9px;font-weight: bold;">{{club.club_name}}</h4>
+
+          <div>
+            <h5 class="club-total-members">{{club.total_members}} MEMBERS</h5>
+          </div>
+        </div>
+        <div class="col-12 row-simple" style="padding:0;">
+          <div class="col-11" style="padding:0;">
+            <h4>{{club.club_name}}</h4>
+          </div>
+          <div class="club-private col-1" style="padding:0;">
+            <label *ngIf="club.private" style="float:right"> <img src="../../../assets/img/lock-icon.png"> </label>
+          </div>
+        </div>  
+      </a>
+    </div>
+
+
+  </div>
+</div>

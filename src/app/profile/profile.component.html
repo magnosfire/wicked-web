@@ -1,0 +1,143 @@
+<div class="home-page background" >
+
+  <div class=""  style="margin-bottom: 0;padding: 0;">
+
+    <div class="container " style="padding: 0;">
+      <div class="row col-md-12 no-padding-margin-left-rigth" style="padding: 0;">
+
+        <div class="col-sm-12 col-md-3 div-club-menu no-padding-margin-left-rigth" style="padding-right: 0;">
+          <div class="col-sm-12" style="padding: 0;">
+            <div class="col-12 club-information margin-top-12" style="margin-bottom: 12px;">
+              <div class="div-user-profile-picture no-padding-margin-left-rigth" style="">
+                <img src="../../assets/img/profile.png" class="user-profile-pic"/>
+              </div>
+            </div>
+            <div *ngIf="profileInformations.own_profile" class="col-xs-12 row-simple" style="">
+              <div class="col-12 club-information div-menu-item">
+                <div class="menu-item"><h4>{{profileInformations.username}}</h4></div>
+              </div>
+              <a [routerLink]="['/profile', 'clubs']" class="club-information div-menu-item" style="padding-bottom: 6px;border: 1px solid black;">
+                Clubs
+              </a>
+              <a [routerLink]="['/message']" class="club-information div-menu-item" style="padding-bottom: 6px;border: 1px solid black;">
+                Message
+              </a>
+              <a [routerLink]="['/profile', 'gallery']" class="club-information div-menu-item" style="padding-bottom: 6px;border: 1px solid black;">
+                 Gallery
+              </a>
+              <a [routerLink]="['/profile', 'settings']" class="club-information div-menu-item" style="padding-bottom: 6px;border: 1px solid black;">
+                Settings
+              </a>
+               
+            </div>
+            <div *ngIf="!profileInformations.own_profile" class="col-xs-12 row-simple" style="">
+              <div class="col-12 club-information div-menu-item">
+                <div class="menu-item"><h4>{{profileInformations.username}}</h4></div>
+              </div>
+              <a [routerLink]="['/profile', profileInformations.username ,'clubs']" class="club-information div-menu-item" style="padding-bottom: 6px;border: 1px solid black;">
+                Clubs
+              </a>
+              <a [routerLink]="['/message',profileInformations.username]" class="club-information div-menu-item" style="padding-bottom: 6px;border: 1px solid black;">
+                Message
+              </a>
+              <a [routerLink]="['/profile',profileInformations.username ,'gallery']" class="club-information div-menu-item" style="padding-bottom: 6px;border: 1px solid black;">
+                 Gallery
+              </a>
+              <div class="club-information div-menu-item" style="padding-bottom: 6px;border: 1px solid black;">
+                <div class="menu-item" (click)="openModal()">Report</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="col-sm-12 col-md-9 div-club-base">
+
+          <div class="col-md-12 div-club-new-post" style="background-color: white;">
+            <p>User information: {{profileInformations.own_profile}}</p>
+            <p>User Bio:{{profileInformations.bio}} </p>
+            <p>User gender:{{profileInformations.gender}} </p>
+            <p>User gender_interest:{{profileInformations.gender_interest}} </p>
+            <p>User age:{{profileInformations.age}} e User partner_age  {{profileInformations.partner_age}}</p>
+            <p>User city:{{profileInformations.city}} </p>
+            <p>User region:{{profileInformations.region}} </p>
+            <p>User last loggin:
+              <label *ngIf="show_loggin || profileInformations.own_profile">{{profileInformations.last_login | timeAgo}}</label> 
+              <label *ngIf="!show_loggin && !profileInformations.own_profile">This user don't share the last time has logged</label> 
+            </p>
+
+          </div>
+
+          <div class="div-list-post div-profile-gallery margin-top-12" >
+
+            <router-outlet></router-outlet>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+<ng-template #content id="content" let-c="close" let-d="dismiss" class="col-12" >
+
+    <div *ngIf="!reportFinished" class="col-12">
+  
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+  
+      <div class="modal-body">
+        <p>Club created with success!&hellip;</p>
+      </div>
+  
+      <form class="row-simple" [formGroup]="reportForm" (ngSubmit)="submitReport()" >
+        <div class="col-12">
+          <select class="form-control" name="report" formControlName="report" (blur)="checkReport()">
+              
+              <option [ngValue]="'default'" disabled selected>Pick you report</option>
+              <option *ngFor="let c of reportList" [ngValue]="c.id">{{ c.title }}</option>
+    
+          </select>
+        </div>
+        <div  name="comment" class="col-12">
+          <textarea class="form-control" placeholder="Tell us more about it" formControlName="text"></textarea>
+        </div>
+        <div class="col-12 modal-footer">
+          <button type="button" class="btn btn-outline-danger"  (click)="c('Cross click')">Cancel</button>
+          <button type="submit" class="btn btn-outline-default" [disabled]="!reportIsValid || !reportForm.valid" >Confirm</button>
+        </div>
+      </form>
+    </div>
+  
+    <div *ngIf="reportFinished" class="col-12">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+          
+        Thank you for the report. We will review and take appropriate action.
+      
+      </div>
+      
+      <div class="modal-footer">
+      
+        <button type="button" class="btn btn-outline-default"  (click)="c('Cross click')">Confirm</button>
+      
+      </div>    
+  
+    </div>
+  
+  
+  </ng-template>
+
+

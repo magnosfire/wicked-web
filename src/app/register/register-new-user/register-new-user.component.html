@@ -1,0 +1,118 @@
+<form class="form-box" [formGroup]="authForm" (ngSubmit)="submitForm()">
+
+        <fieldset  *ngIf="step_1">
+          <fieldset class="form-group">
+            <label class="form-label">Email: </label>
+            <input
+              formControlName="email"
+              placeholder="email@email.com"
+              class="form-control form-input"
+              type="email"
+              email
+              (blur)="suggestUsername()"
+              />
+            <div *ngIf="authForm.controls['email'].hasError('required') && authForm.controls['email'].touched" class="alert alert-error"><span></span>Email is required.</div>
+            <div *ngIf="authForm.controls['email'].hasError('pattern') && authForm.controls['email'].touched" class="alert alert-error"><span></span>Email must be valid.</div>
+            <div *ngIf="emailCanNotBeUsed && !authForm.controls['email'].hasError('pattern')" class="alert alert-error"><span></span>This email is already be taken.</div>
+          </fieldset>
+
+          <fieldset class="form-group">
+            <label class="form-label">Username: </label>
+            <input
+              formControlName="username"
+              placeholder="Username"
+              class="form-control form-input"
+              type="text"
+              (blur)="checkUsernameAvailability()"/>
+            <div *ngIf="suggestUsernameVar" > 
+              <p class="username-suggetion"> Username suggestion: {{ suggestUsernameVar }} </p>
+            </div>
+            <div *ngIf="!authForm.controls['username'].valid && authForm.controls['username'].touched && !authForm.controls['username'].hasError('pattern')"class="alert alert-error">
+              <span></span>
+              Username is required.
+            </div>
+            <div *ngIf="authForm.controls['username'].hasError('pattern') && authForm.controls['username'].touched" class="alert alert-error">
+              <span></span>Username cann't contain special characters.
+            </div>
+            <div *ngIf="usernameIsNotValid" class="alert alert-error"><span></span>This username is already be taken.</div>
+          </fieldset>
+
+          <fieldset class="form-group">
+
+            <label class="form-label">Password: </label>
+
+            <input
+
+              formControlName="password"
+              placeholder="Password"
+              class="form-control form-input"
+              type="password" />
+            <div *ngIf="authForm.controls['password'].hasError('required') && authForm.controls['password'].touched" class="alert alert-error"><span></span>Password is required.</div>
+            <div *ngIf="authForm.controls['password'].hasError('minlength') && authForm.controls['password'].touched" class="alert alert-error"><span></span>Password must be at least 6 characters long.</div>
+          </fieldset>
+
+          <a [class.disabled] = "authForm.controls['email'].hasError('pattern') ||
+                           authForm.controls['email'].hasError('pattern') || emailCanNotBeUsed ||
+                           !authForm.controls['username'].valid ||  authForm.controls['username'].hasError('pattern') ||
+                           authForm.controls['password'].hasError('required') || authForm.controls['password'].hasError('minlength') ? true : null" 
+            class="btn form-button" style="margin-top:15px;" (click)="moveToStep_2()" >
+              Continue
+          </a>
+
+        </fieldset>
+
+        <fieldset [ngClass]="{show: step_2, hide: !step_2}" >
+
+          <fieldset class="form-group">
+            <label class="form-label">I am/We are a: </label>
+            <select class="form-control form-input form-dropdown" name="gender" formControlName="gender" >
+                <option *ngFor="let basicGender of listBasicGenders" value={{basicGender.id}} >
+                  {{basicGender.gender}}
+                </option>
+            </select>
+          </fieldset>
+
+
+          <fieldset   class="form-group row-simple" [disabled]="!this.authForm.get('gender').value || !listsexOrientation">
+              <label class="form-label">Orientation: </label>
+              <select class="form-control form-input form-dropdown" name="gender" formControlName="sexOrientation">
+                  <option class="form-input form-dropdown" *ngFor="let sexOrientation of listsexOrientation" value={{sexOrientation.id}} >
+                    {{sexOrientation.gender}}
+                  </option>
+              </select>
+            </fieldset>
+
+
+          <fieldset class="form-group row-simple" style="margin-top: 12px;">
+
+            <label class="form-label">Birthdate</label>
+
+            <div class="example" style="width: 100%;color: #55595c;">
+
+              <input type="hidden" id="birthdate" class="form-input form-dropdown" formControlName="partnerBirthdate" (blur)="checkAge()">
+
+            </div>
+
+            <div *ngIf="!birthdateIsValid" class="alert alert-danger">You are younger than 18 year old. You can't register.</div>
+
+          </fieldset>
+
+          <fieldset  class="form-group row-simple" [className]="hiddenPartnerBirthdate">
+            <label style="width: 100%;">Partner Birthdate</label>
+            <div class="example" style="width: 100%;color: #55595c;">
+              <input type="hidden" id="partnerBirthdate" formControlName="partnerBirthdate">
+            </div>
+            <div *ngIf="!partnerBirthdateIsValid" class="alert alert-danger">Your partner is younger than 18 year old. You can't register.</div>
+          </fieldset>
+          <fieldset class="form-group row-simple">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="terms">
+              <label class="form-check-label" for="exampleCheck1" style="font-size:12px;">I agree to ProfileHFX's terms & conditions and privacy policy</label>
+            </div>
+            <div *ngIf="!termsIsChecked" class="alert alert-danger">Your partner is younger than 18 year old. You can't register.</div>
+          </fieldset>
+          <button class="btn form-button" data-sitekey="6LcOzFwUAAAAAH6rUx3cTqfBGjbjTXjQ1SQ6u9IF" data-callback="submitForm()" type="submit" style="background-color: white;color: green;">
+            Continue
+          </button>
+        </fieldset>
+      </form>

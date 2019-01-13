@@ -1,0 +1,45 @@
+.div-message-contacts{
+  background-color: #ffe8a1;
+  min-height: 80px;
+  padding:0 12px 0 0;
+}
+
+.div-message-base {
+  background-color: #b0e1ef;
+  min-height: 65vh;
+}
+
+.profile-pic {
+  min-height: 50px;
+  max-height: 50px;
+  width: 50px;
+  background-color: #9fcdff;
+}
+
+.div-content{
+  min-height: calc(100% - 56px);
+  max-height: calc(100% - 56px);
+}
+
+@media (max-width: 768px) {
+
+  .div-message-contacts {
+    min-height: 100%;
+  }
+
+  .div-content{
+    max-height: calc(100% - 64px);
+
+  }
+
+}
+
+.div-message {
+  max-height: 100px;
+}
+
+@media (max-width: 768px) {
+  .div-message {
+    max-height: calc(100% - 122px);
+  }
+}

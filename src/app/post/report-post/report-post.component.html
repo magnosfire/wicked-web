@@ -1,0 +1,35 @@
+<ng-template #content id="content" let-c="close" let-d="dismiss" class="col-12" >
+  <div class="col-12">
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <p>Club created with success!&hellip;</p>
+    </div>
+    <form class="row-simple" style="width: 100%;margin-bottom: 10px;" [formGroup]="reportForm" (ngSubmit)="submitForm()" >
+      <select class="form-control" name="report" formControlName="report">
+          
+          <option [ngValue]="'default'" disabled selected>Pick you report</option>
+          <option *ngFor="let c of reportList" [ngValue]="c.id">{{ c.title }}</option>
+
+      </select>
+      <div  name="comment">
+        <textarea class="form-control" placeholder="Tell us more about it" formControlName="text"></textarea>
+      </div>
+      <div class="div-text-message" style="width:50px;margin-left: 20px;">
+          <button class="btn" style="float: right;"> > </button>
+        </div>
+    </form>
+
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-danger"  >Confirm</button>
+    </div>
+
+  </div>
+</ng-template>
+
+
+

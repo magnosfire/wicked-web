@@ -1,0 +1,52 @@
+<div class="container gallery" style="padding: 0;">
+
+    Privacy Settings : 
+    <br/>
+    <div *ngIf="!premium.is_premium" >
+
+        <button class="btn btn-lg pull-xs-right"  type="button" (click)="openModal()" style="background-color: white;color: green;margin-bottom: 12px;  ">
+          Be premium
+        </button>
+
+    </div>
+    <div *ngIf="premium.is_premium">
+    <p> Begin date: {{premium.begin_date}} </p>
+    <p> End date: {{premium.end_date}} </p>
+    <br/>
+    
+    <p> Auto-rebill : </p>
+      <input type="checkbox" [checked]="autoRebill" (change)="updateAutoRebill($event)"/> Auto-rebill
+    </div>
+  
+    
+  
+  </div>
+
+  <ng-template #content id="content" let-c="close" let-d="dismiss" class="col-12" >
+  
+    <div class="col-12">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" id="closeTransferModal" #closeTransferModal aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+          
+        There are the benefits of being a premium member.
+      
+      </div>
+      
+      <div class="modal-footer">
+      
+        <button type="button" class="btn btn-outline-danger"  (click)="c('Cross click')">Cancel</button>
+        <button type="button" class="btn btn-outline-default"  (click)="bePremium()">Confirm</button>
+        
+      
+      </div>    
+  
+    </div>
+  
+  
+  </ng-template>

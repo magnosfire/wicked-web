@@ -1,0 +1,52 @@
+<div class="col-12" style="padding: 0;">
+
+
+
+
+    <div *ngFor="let application of applicationList; let r = index" style="margin-bottom: 12px;">
+
+        <div class="col-12 join-requests">
+            Join Request
+        </div>
+
+        <div class="row-simple col-12 user-requested" style="background-color:#c1c1c1 ">
+            <div class="col-1 user-profile-picture" style="background-color:red ">
+                <img src="assets\img\profile.png" style="width: 50px;height: 50px;">
+            </div>
+            <div class="col-8 user-information" style="background-color:khaki ">
+                <div class="col-12 username">
+                    Username: {{application.username}}
+                </div>
+                <div class="col-12 request-date">
+                    Application data: {{application.application_date}}
+                </div>
+                <div class="col-12 user-clubs">
+                    Clubs :
+                </div>
+                <div class="col-12 user-pictures">
+                    Pictures :
+                </div>
+                <div class="col-12 request-reason">
+                    Reason: {{application.reason}}  
+                </div>
+        </div>
+            <div class="row-simple col-3 request-actions" style="background-color:grey ">
+                <div class="col-6 btn" (click)="acceptRequest(application.id, r, application.user_id)">
+                    Accept
+                </div>
+                <div class="col-6 btn" (click)="declineRequest(application.id, r)">
+                    Decline
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <div *ngIf="applicationList?.length === 0" style="margin-bottom: 12px;text-align: center;padding-top: 10vw;">            
+    
+        <label> You don't have new applications</label>
+    
+    </div>
+</div>

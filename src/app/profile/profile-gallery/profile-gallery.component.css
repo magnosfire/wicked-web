@@ -1,0 +1,12 @@
+.photo-gallery {
+  width: calc(33% - 6px);
+  height:15vh;
+  background-color: #d39e00;
+  margin: 3px;
+}
+
+@media (max-width: 576px) {
+  .photo-gallery {
+    width: calc(50% - 6px);
+  }
+}

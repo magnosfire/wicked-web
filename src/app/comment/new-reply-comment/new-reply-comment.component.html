@@ -1,0 +1,11 @@
+<div style="margin-top:10px;margin-bottom: 10px;">
+    <form class="row-simple" style="width: 100%;margin-bottom: 10px;" [formGroup]="commentForm" (ngSubmit)="submitForm()">
+        <div class="div-text-message" style="width: calc(100% - 70px);margin-bottom: 10px;resize: vertical;">
+          <textarea [(ngModel)]="replyTargetUsername" [ngModelOptions]="{standalone:true}" 
+          class="form-control" type="text" style="border-radius: 30px;height: 30px;max-height: 300px;"></textarea>
+        </div>
+        <div class="div-text-message" style="width:50px;margin-left: 20px;">
+          <button class="btn" style="float: right;"> > </button>
+        </div>
+      </form>
+</div>

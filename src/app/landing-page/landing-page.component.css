@@ -1,0 +1,50 @@
+.photo-gallery {
+  width: calc(33% - 6px);
+  height:15vh;
+  background-color: #d39e00;
+  margin: 3px;
+}
+
+
+
+
+
+@media (max-width: 576px) {
+  .photo-gallery {
+    width: calc(50% - 6px);
+  }
+}
+
+
+.main-text {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
+
+}
+
+@media(max-width: 992px)
+{
+  .main-text {
+    position: relative;
+
+
+  }
+}
+
+/* NEW CSS*/
+
+.landing-page{
+  
+}
+
+
+.image-background {
+
+  height: 80vh;
+  background-color: purple;
+
+}

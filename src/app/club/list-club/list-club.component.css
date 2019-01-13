@@ -1,0 +1,179 @@
+.ts {
+  margin-left:0!important;
+}
+
+/* BEGIN NEW CLUB */
+
+.new-club-div {
+  margin-top: 32px;
+}
+
+.new-club-btn {
+  font-weight: bold;
+  color: white; 
+  font-size: 18px;
+  margin-bottom: 12px;
+  height: 43px;
+  background-color:rgb(81, 10, 50);
+  border: none;
+}
+
+/* END NEW CLUB */
+
+
+.no-padding-margin-left-rigth {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.margin-top-12 {
+  margin-top: 12px;
+}
+
+.club-name {
+  padding: 6px 0;
+
+}
+
+.row-without-padding {
+  display: flex;
+  flex-wrap:wrap;
+  padding: 0;
+}
+
+.div-menu-item{
+  margin-top: 3px;
+  padding: 0;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .div-menu-item {
+    width: calc(25% - 3px);
+    margin-right: 3px;
+  }
+}
+
+.menu-item{
+
+}
+
+.menu-item:hover{
+  border: 1px solid black;
+}
+
+.div-club-base {
+  background-color: #b0e1ef;
+  min-height: 65vh;
+}
+
+
+
+.main-text {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+
+}
+
+@media(max-width: 992px)
+{
+  .main-text {
+    position: relative;
+
+
+  }
+}
+
+
+/* CLUB CARDS */
+
+.club-card {
+  position: relative;
+  width:calc(20vw - 12px);
+  height: 10vw;
+  margin-left: 12px;
+  margin-top: 12px;
+  
+}
+
+@media(max-width: 1150px) {
+  .club-card {
+    width: calc(26.5vw - 12px);
+    height: 13.25vw;
+  }
+}
+
+@media(max-width: 992px) {
+  .club-card {
+    width: calc(32vw - 12px);
+    height: 16vw;
+  }
+}
+
+@media(max-width: 750px) {
+  .club-card {
+    width: calc(47.1vw - 12px);
+    height: 23.55vw;
+  }
+}
+
+@media(max-width: 516px) {
+  .club-card {
+    width: 96vw;
+    height: 43vw;
+    margin-left: 0;
+  }
+}
+
+.club-card-blur{
+  height: 100%;
+  width: 100%;
+}
+
+.club-card :hover{
+  background-color: rgba(0,0,0, 0.1);
+}
+
+.club-card-link {
+  height: auto;
+  width: 100%;
+  text-decoration: none;
+  position: absolute;
+  bottom:0;
+  left:0;
+}
+
+.club-card:hover .club-card-total-members{
+  display: block;
+  background-color: none!important;
+
+}
+
+.club-card-total-members {
+   width: 100%;
+   font-weight:bold;
+   margin-bottom:0;
+   margin-left:5px;
+   display: none;
+   color:white;
+   
+
+}
+
+/* END CLUB CARDS */
+
+/* CLUB TITLE */
+
+.club-title{
+  color:rgb(81, 10, 50);
+  font-weight:bold;
+  font-size:calc(13px + 0.5vw);
+}
+
+/* END CLUB TITLE */

@@ -1,0 +1,107 @@
+<div class="container gallery" style="padding: 0;">
+
+  <div>
+    Profile Information: <label *ngIf="!enableEditProfile" (click)="editProfile()">Edit</label><label *ngIf="enableEditProfile" (click)="cancelProfile()">Cancel</label>
+    <div *ngIf="!enableEditProfile">
+      <div>
+        <p>Bio: {{profileInformations.bio}}</p>
+      </div>
+      <div>
+        <p>Country: {{profileInformations.country}}</p>
+        <p>State/Province: {{profileInformations.region}}</p>
+        <p>City: {{profileInformations.city}}</p>
+      </div>
+      <div>
+        Interests: {{profileInformations.gender_interest}}
+      </div>
+    </div>
+    <div *ngIf="enableEditProfile">
+        <form [formGroup]="privacyForm" (ngSubmit)="submitForm()">
+
+          <div>
+            Bio: 
+            <div class="div-text-message" style="width: calc(100% - 70px);margin-bottom: 10px;resize: vertical;">
+              <textarea formControlName="edit_bio" class="form-control" style="border-radius: 30px;height: 30px;max-height: 300px;">
+                
+              </textarea>
+            </div>
+          </div>
+
+          <div>
+            
+            <p class="text-xs-left">Location</p>
+            <div class="row-simple">
+
+              <fieldset class="form-group col-lg-4">
+                <label>Country: {{profileInformations.city}} </label>
+                <select class="form-control" formControlName="country">
+                  <option [value]="userLocationInformation.countryID" selected>
+                    {{userLocationInformation.countryName}}
+                  </option>
+                  <option disabled>
+                    ----------------
+                  </option>
+                  <option *ngFor="let country of countryList" [value]="country.id" >
+                    {{country.name}}
+                  </option>
+                </select>
+              </fieldset>
+
+              <fieldset class="form-group col-lg-4">
+                <label>Province/State: {{profileInformations.region}} </label>
+                <select class="form-control"  formControlName="province">
+                  <option *ngIf="!hideUserProvince" [value]="userLocationInformation.provinceID" selected>
+                    {{userLocationInformation.provinceName}}
+                  </option>
+                  <option *ngIf="!hideUserProvince" disabled>
+                    ----------------
+                  </option>
+                  <option *ngIf="hideUserProvince" selected>
+                  </option>
+                  <option *ngFor="let province of provinceList" [selected]="profileInformations.region === province?.name" [value]="province.id" >
+                    {{province.name}}
+                  </option>
+                </select>
+              </fieldset>
+              
+              <fieldset class="form-group col-lg-4">
+                <label>City: </label>
+                <select class="form-control" formControlName="city">
+                  <option *ngIf="!hideUserCity" [value]="userLocationInformation.cityID" selected>
+                    {{userLocationInformation.cityName}}
+                  </option>
+                  <option *ngIf="!hideUserCity" disabled>
+                    ----------------
+                  </option>
+                  <option *ngIf="hideUserCity" selected>
+                  </option>
+                  <option *ngFor="let city of cityList" [value]="city.id">
+                    {{city.name}}
+                  </option>
+                </select>
+              </fieldset>
+              
+            </div>
+            
+          </div>
+          <div>
+            Interests: 
+            <fieldset class="form-group col-lg-4">
+                <div *ngFor="let gender of genderInterestList">
+
+                    <input type="checkbox" [checked]="gender.checked" (change)="onChange(gender.id, $event.target.checked)"> {{gender.gender}}<br>
+    
+                </div>
+            </fieldset>
+            
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+        
+      </div>
+  </div>
+
+
+  
+
+</div>

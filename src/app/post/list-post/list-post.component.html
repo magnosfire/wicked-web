@@ -1,0 +1,175 @@
+<div class="col-md-12 no-padding-margin">
+  <app-new-post></app-new-post>
+</div>
+<div infinite-scroll [infiniteScrollDistance]="1" [infiniteScrollThrottle]="10" [immediateCheck]="true" (scrolled)="onScrollDown()"  >
+  <div *ngFor="let post of postList; let i = index" class="col-md-12 no-padding-margin">
+
+    <div class="col-12 club-list-post">
+
+        <div class="post">
+
+          <div class="row-simple  post-information">
+
+            <img class="user-picture">
+            <div class="row-simple user-information">
+              <p class="col-10 no-padding-margin post-owner-username">{{post.username}}</p>
+              <img *ngIf="post.pinned" src="./../../../assets/icons/Icons/pin.png">  
+              <div class="col-1 btn-group dropleft">
+                <img  src="./../../../assets/icons/Icons/dots.png" class="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  
+                <div class="dropdown-menu">
+                  <p *ngIf="post.post_owner post-data" class="dropdown-item" (click)="postEdit(i, post.id)">Edit</p>
+                  <p class="dropdown-item" (click)="postReport(i, post.id)">Report</p>
+                  <p class="dropdown-item" *ngIf="!post.pinned && club_adm" (click)="openPinModal(i, post.id)">Pin</p>
+                  <p class="dropdown-item" *ngIf="post.pinned && club_adm" (click)="removePin(i, post.id)"> Remove pin</p>
+                </div>
+              </div>
+
+              <p class="col-11 no-padding-margin post-data" *ngIf="!post.edit">
+                  {{post.post_date | date: 'dd/MM/yyyy'}}
+              </p>
+
+              <p class="col-11 no-padding-margin post-data" *ngIf="post.edit">
+                  Posted - {{post.post_date | date: 'dd/MM/yyyy'}} and Edited - {{post.edit_date | date: 'dd/MM/yyyy'}}
+              </p>
+
+              
+
+            </div>
+
+          </div>
+          <div class="post-content" style="resize:none;">
+              <p [hidden]="edit[i]" class="post-text">{{post.text}}
+                  
+              </p>
+              <div [hidden]="!edit[i]" class="post-edit-text">
+      
+                <app-update-post [postID] = "post.id" [postElement] = "i" [postText] = "post.text"></app-update-post>
+            
+            
+              </div>
+
+          </div>
+          <div class="row-simple post-actions">
+            <img src="../../../assets/icons/Icons/Heart.png" class="post-action-button">
+            <img src="../../../assets/icons/Icons/Replay.png" class="post-action-button">
+            <div class="row-simple post-action-button" (click)="showComments(i, post.id)">
+              <p class="post-action-text">{{post.comments}}</p>
+              <img src="../../../assets/icons/Icons/Chat.png" class="post-action-image">
+            </div>
+
+          </div>
+
+          <div style="margin-top:10px;margin-bottom: 10px;">
+            <app-new-comment [postID] = "post.id" [postElement] = "i" ></app-new-comment>
+          </div>
+
+          <div *ngIf="hideComments[i]">
+
+            <app-list-comment *ngIf="hideComments[i]" [commentList] = "commentList[i]" [postId] = "post.id"></app-list-comment>
+                    
+          </div>
+          
+        </div>
+
+        
+
+
+      </div>
+    
+  </div>
+ 
+</div>
+
+<div class="footer" style="height:50px;width: 100%;">
+
+</div>
+
+<!-- MODAL -->
+<ng-template #content id="content" let-c="close" let-d="dismiss" class="col-12" >
+
+  <div *ngIf="!reportFinished" class="col-12">
+
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+    <div class="modal-body">
+      <p>Club created with success!&hellip;</p>
+    </div>
+
+    <form class="row-simple" [formGroup]="reportForm" (ngSubmit)="submitForm()" >
+      <div class="col-12">
+        <select class="form-control" name="report" formControlName="report" (blur)="checkReport()">
+            
+            <option [ngValue]="'default'" disabled selected>Pick you report</option>
+            <option *ngFor="let c of reportList" [ngValue]="c.id">{{ c.title }}</option>
+  
+        </select>
+      </div>
+      <div  name="comment" class="col-12">
+        <textarea class="form-control" placeholder="Tell us more about it" formControlName="text"></textarea>
+      </div>
+      <div class="col-12 modal-footer">
+        <button type="button" class="btn btn-outline-danger"  (click)="c('Cross click')">Cancel</button>
+        <button type="submit" class="btn btn-outline-default" [disabled]="!reportIsValid || !reportForm.valid" >Confirm</button>
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="reportFinished" class="col-12">
+    <div class="modal-header">
+      <h4 class="modal-title">Modal title</h4>
+      <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    
+    <div class="modal-body">
+        
+      Thank you for the report. We will review and take appropriate action.
+    
+    </div>
+    
+    <div class="modal-footer">
+    
+      <button type="button" class="btn btn-outline-default"  (click)="c('Cross click')">Confirm</button>
+    
+    </div>    
+
+  </div>
+
+
+</ng-template>
+
+<ng-template #pin id="pin" let-c="close" let-d="dismiss" class="col-12" >
+  
+    <div class="col-12">
+      <div class="modal-header">
+        <h4 class="modal-title">Modal title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+      <div class="modal-body">
+          
+        Fixing this post it will exchange the old fixed post. Do you want to continue?
+      
+      </div>
+      
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-default" data-dismiss="modal" data-toggle="modal" #closeBtn id="closeBtn"  (click)="d('Cross click')">Cancel</button>
+        <button type="button" class="btn btn-outline-default"  (click)="pinPost()">Confirm</button>
+      
+      </div>    
+  
+    </div>
+  
+  
+  </ng-template>
+<!-- MODAL -->
+

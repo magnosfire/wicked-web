@@ -1,0 +1,318 @@
+.club-background-image {
+  background: linear-gradient(#e5e5e5, gray);
+  min-height: 30vh;
+  padding-top: 0!important;
+  margin-top: 0;
+}
+
+.no-padding-margin-left-rigth {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.div-club-menu{
+  background-color: #ffe8a1;
+  padding:0 12px 0 0;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .div-club-menu{
+    background-color: #ffe8a1;
+    padding:12px;
+  }
+}
+
+.margin-top-12 {
+  margin-top: 12px;
+}
+
+@media (max-width: 768px) {
+  .margin-top-12 {
+    margin-top: 0;
+  }
+}
+
+.club-name {
+  padding: 6px 0;
+
+}
+
+.row-without-padding {
+  display: flex;
+  flex-wrap:wrap;
+  padding: 0;
+}
+
+
+
+.div-club-base {
+  background-color: #b0e1ef;
+  min-height: 65vh;
+}
+
+.div-club-new-post {
+  margin-top: 12px;
+}
+
+.new-post {
+
+}
+
+.list-post {
+  background-color: #ffe8a1;
+  margin-top: 12px;
+  padding: 12px;
+}
+
+.div-post-information {
+  min-height: 50px;
+  background-color: #e2e3e5;
+}
+
+.profile-pic {
+  height: 50px;
+  width: 50px;
+  background-color: #9fcdff;
+}
+
+.div-comment-user {
+  height: 50px;
+  width: calc(100% - 50px);
+  background-color: #1f7e9a;
+}
+
+.row-simple {
+  flex-wrap: wrap;
+  display: flex;
+}
+
+.div-comment-profile-pic {
+  background-color: #f8d7da;
+  margin-left: 0;
+  padding: 0;
+  width: 50px;
+  height: 50px;
+}
+
+.div-comment{
+  width: calc(100% - 62px);
+  margin-left:12px;
+}
+
+.div-comment-text {
+  background-color: white;
+  border: 1px #c1c1c1;
+  padding: 8px 10px;
+  border-radius: 18px;
+}
+
+/*  */
+
+.club-wallpaper {
+  width: 100%;
+  background-color: rgb(151, 151, 151);
+  height:36vw;
+}
+
+
+@media (max-width: 767px) {
+  .club-wallpaper{ 
+    height: 56.25vw;
+  }
+}
+
+.club-information {
+  min-height: 20vh;
+}
+
+.club-menu {
+  padding: 16px 0;
+  border-bottom: 1px solid rgb(151, 151, 151);
+  font-family: 'Calibri';
+  font-size: calc(15px + 0.5vw);
+  width: auto; 
+  display: flex; /* displays flex-items (children) inline */
+  overflow-x: auto;
+}
+
+.club-menu::-webkit-scrollbar {
+  display: none;
+}
+
+.club-menu-item{
+  margin-right:35px;
+  zoom:1; 
+  flex: 0 0 15%; /* doesn't grow nor shrink, initial width set to 25% of the parent's */
+  height: 1em; /* just for demo */
+}
+
+.club-content {
+
+  margin-left: 0;
+  padding-left: 0;
+}
+
+@media (max-width: 768px) {
+
+  .club-content {
+    padding-right: 0;
+  }
+}
+
+.club-features{
+  padding-right: 0;
+
+}
+
+.club-description {
+  
+}
+
+@media (max-width: 768px) {
+  .club-features{
+    display: none;
+  }
+
+  .club-description {
+    padding:0;
+  }
+}
+
+
+
+/*  */
+
+/* fonts */
+
+.information-title{
+  font-weight: bold;
+  margin-bottom: 0; 
+}
+
+/*       */
+
+/* club-featured  */
+
+.club-featured-members {
+  border: 1px solid rgb(151, 151, 151);
+  border-radius: 3px;
+}
+
+.club-featured-members-title {
+
+  width: 100%;
+
+  min-height: 100px;
+  position: relative;
+  text-align: center;
+  padding-bottom: 50px;
+  padding-top: 50px;
+  font-family: 'Calibri thin';
+  font-size: calc(16px + 0.5vw);
+  font-weight: bold;
+}
+
+.text-align-middle {
+
+
+}
+
+
+.club-featured-members-tile {
+  width: calc(10.5vw - 15px);
+  height: calc(10.5vw - 15px);
+  background-color: rgb(151, 151, 151);
+  margin-left: 15px;
+  margin-bottom: 12px;
+
+}
+
+/* end-club-featured  */
+
+
+
+/* new post */
+
+.new-post-content{
+  border: 1px solid rgb(151, 151, 151);
+  border-radius: 3px;
+  height: calc(18px + 30vh);
+  padding:18px 2vw;
+}
+
+.new-post {
+  height: 80%;
+  width: 100%;
+  border-bottom: 1px solid rgb(151, 151, 151);
+}
+
+.new-post-buttons {
+  width: 100%;
+  padding-top: 8px;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.new-post-btn-image {
+  padding-left: 0;
+  
+}
+
+.new-post-div-submit{
+  padding-right: 0;
+}
+
+.new-post-btn-submit {
+
+  background-color: rgb(81, 10, 50);
+  color:white;
+  border: none;
+  border-radius: 8px;
+  padding: 3px;
+
+}
+
+
+/* end-new-post */
+
+/* club-list */
+
+.club-list-post {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.post {
+
+  border: 1px solid rgb(151, 151, 151);
+  margin-top: 18px;
+  border-radius: 3px;
+  padding:18px 2vw;
+
+}
+
+.post-information {
+  margin-bottom: 6px;
+}
+
+.user-picture{
+  width: 40px;
+  height: 40px;
+  background-color:rgb(151, 151, 151);
+}
+
+.post-content {
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgb(151, 151, 151);
+}
+
+.post-actions {
+  margin-top: 26px;
+}
+
+/* end-club-list */
+

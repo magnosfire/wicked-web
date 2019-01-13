@@ -1,0 +1,14 @@
+<div class="col-12 new-post-content" style="padding:0;margin:0;">
+
+    <form class="row-simple" style="width: 100%;margin-bottom: 10px;" [formGroup]="editPostForm" (ngSubmit)="submitForm()">
+
+    <textarea formControlName="editPost" value="{{postText}}" style="width: 100%;height: 100%;border: none;resize: none;" placeholder="Share a message or image" ></textarea>
+
+    <div class="col-2 offset-10 new-post-div-submit text-right">
+      <button class="col-12 new-post-btn-submit" [disabled]="!editPostForm.valid"> Save </button>
+    </div>
+
+  </form>
+
+</div>
+

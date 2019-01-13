@@ -1,0 +1,78 @@
+<div class="container gallery row-simple" style="padding: 0;background-color: #ffe8a1;border: 1px solid #c1c1c1;">
+ 
+  <div style="margin-top:12px;">
+
+    <div class="div-role col-12 row-without-padding">
+
+      <div class="div-title col-12 no-padding-margin"  >
+        <p>ADMIN</p>
+      </div>
+
+      <div *ngFor="let adm of admList; let i = index">
+          <div style="max-width:100px;min-height:100px;margin: 0px 0px 12px 12px;">
+            <a href="/profile/{{adm.username}}">
+              <div class="member-pic" style="width:100px;height:100px; background-color:green;">
+        
+              </div>
+              <div class="member-name" style="max-width:100px;overflow: hidden; word-break: break-all">
+                  <label>{{adm.username}}</label>
+                  
+              </div>
+            </a>
+          </div>
+    
+        </div>
+
+    </div>
+
+    <div class="div-role col-12 row-without-padding">
+
+      <div class="div-title col-12 no-padding-margin" >
+        <p>MOD</p>
+      </div>
+
+      <div *ngFor="let mod of modList; let i = index">
+        <div style="max-width:100px;min-height:100px;margin: 0px 0px 12px 12px;">
+          <a href="/profile/{{mod.username}}" >
+            <div class="member-pic" style="width:100px;height:100px; background-color:green;">
+      
+            </div>
+            <div class="member-name" style="max-width:100px;overflow: hidden; word-break: break-all">
+                <label>{{mod.username}}</label>
+            </div>
+          </a>
+          <label (click)="kickMember(mod.user_id, i,'mod')">kick</label>
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="div-role col-12 row-without-padding">
+
+      <div class="div-title col-12 no-padding-margin" >
+        <p>MEMBERS</p>
+      </div>
+
+      <div *ngFor="let member of memberList; let i = index">
+          <div style="max-width:100px;min-height:100px;margin: 0px 0px 12px 12px;">
+            <a href="/profile/{{member.username}}" >
+              <div class="member-pic" style="width:100px;height:100px; background-color:green;">
+        
+              </div>
+              <div class="member-name" style="max-width:100px;overflow: hidden; word-break: break-all">
+                  <label>{{member.username}}</label>
+              </div>
+            </a>
+            <label (click)="kickMember(member.user_id, i,'member')">kick</label>
+          </div>
+
+          
+    
+        </div>
+
+    </div>
+
+  </div>
+
+</div>

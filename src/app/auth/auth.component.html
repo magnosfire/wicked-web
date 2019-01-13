@@ -1,0 +1,51 @@
+<form class="form-box" [formGroup]="authForm" (ngSubmit)="submitForm()" >
+
+  <div class="col-12 no-padding-left-right">
+    
+    <fieldset class="form-group">
+      <label class="form-label">Email/Username: </label>
+      <input class="form-control form-input" type="text" placeholder="Email/Username" formControlName="username" aria-label="username">
+    </fieldset>
+
+    <fieldset class="form-group">
+      <label class="form-label">Password: </label>
+      <input class="form-control form-input" type="password" placeholder="Password" aria-label="Password" formControlName="password">
+      <p><a href="resetpassword" style="color:purple;font-size: calc(10px + 0.5vw);float: right;">Trouble signing in?</a></p>
+    </fieldset>
+
+    <button class="btn form-button" type="submit">Login</button>
+
+    <div class="col-12 no-padding-left-right" style="margin-top: 16px;">
+      <p *ngIf="error" style="color:purple;font-size: calc(10px + 0.5vw);">{{error}}</p>
+    </div>
+
+  </div>
+
+  
+  
+</form>
+
+<ng-template #content id="content" let-c="close" let-d="dismiss" class="modal-dialog" style="margin:0 !important;">
+
+  <div class="modal-body">
+    <div class="col-12">
+
+      <div class="col-10 offset-1" style="padding-top:10vh;padding-bottom: 10vh;">
+
+          <p style="text-align: justify;">
+              Looks like you are having some trouble logging in or someone is trying to login as you.
+              In either case, you can change your password and keep your account safe using the link bellow.
+            </p>
+
+      </div>
+
+    </div>
+    
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Close</button>
+  </div>
+
+</ng-template>
+
+
+
+
