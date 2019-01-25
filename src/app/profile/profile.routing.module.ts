@@ -13,11 +13,11 @@ import { ProfilePremiumComponent } from './profile-premium/profile-premium.compo
 import { ProfileEditComponent } from './profile-edit/profile-edit.component';
 
 const profileRoutes: Routes = [
-  {path: 'profile', component: ProfileComponent,
+  {path: 'profile',
     children: [
       {
         path: '',
-        component: ProfileClubsComponent
+        component: ProfileComponent
       },
       {
         path: 'gallery',

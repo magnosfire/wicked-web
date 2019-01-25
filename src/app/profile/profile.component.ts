@@ -80,6 +80,8 @@ export class ProfileComponent implements OnInit {
       this.profileInformations = profileResponse.profileInformation;
 
       this.show_loggin = this.profileInformations.show_logged;
+
+      console.log(this.profileInformations);
       
 
     });

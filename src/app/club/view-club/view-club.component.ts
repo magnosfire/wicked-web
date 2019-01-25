@@ -96,6 +96,8 @@ export class ViewClubComponent implements OnInit {
         this.club_name = this.clubInformations.club_name;
 
         if(this.clubInformations.club_adm === 1) {
+          console.log('ADM');
+
           this.club_adm = true;
         }
 

@@ -34,6 +34,8 @@ export class MembersClubsComponent implements OnInit {
     this.clubService.getMembers(this.clubName).subscribe(
       membersList=> {
 
+        console.log(membersList);
+
           this.memberList = membersList.memberList;
           this.modList = membersList.modList;
           this.admList = membersList.admList;
